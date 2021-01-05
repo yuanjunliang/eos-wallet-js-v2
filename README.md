@@ -1,5 +1,7 @@
 # eos-wallet-js-v2
 
+[eosjs-api](./eosjs-api.md)
+
 # 简介
 
 该版本为`scatterjs-plugin-eosjs2`对应的scatter的最新版本
