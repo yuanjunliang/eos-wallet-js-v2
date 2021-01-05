@@ -1,0 +1,25 @@
+{
+  "name": "eos-wallet-js-v2",
+  "version": "1.0.0",
+  "description": "eosjs2.x version",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yuanjunliang/eos-wallet-js-v2.git"
+  },
+  "keywords": [],
+  "author": "yuanjunliang",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yuanjunliang/eos-wallet-js-v2/issues"
+  },
+  "homepage": "https://github.com/yuanjunliang/eos-wallet-js-v2#readme",
+  "dependencies": {
+    "eosjs": "^21.0.3",
+    "scatterjs-core": "^2.7.18",
+    "scatterjs-plugin-eosjs2": "^1.5.0"
+  }
+}
