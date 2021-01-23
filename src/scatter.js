@@ -11,6 +11,7 @@ export default class Wallet {
     this.eos = null;
     this.connected = false
     this.account = null
+    this.scatter = null
     this.network = network;
     this.config = config;
     this.rpc = null;
@@ -28,6 +29,7 @@ export default class Wallet {
   }
 
   async connect(callback) {
+    console.log("connect========",this.connected)
     const dappName = this.config.dappName || 'dapp';
     const network = this.scatterNetwork;
     if (typeof callback === 'function') {
@@ -60,6 +62,7 @@ export default class Wallet {
         const account = ScatterJS.account('eos');
         this.eos = ScatterJS.eos(network, Api, { rpc, beta3: true });
         this.account = account;
+        this.scatter = ScatterJS.scatter
         callback(null, account);
       } catch (error) {
         callback(error, null);
@@ -78,9 +81,10 @@ export default class Wallet {
   }
 
   forgetIdentity () {
-    this.eos = null;
+    this.eos = null
     this.connected = false
     this.account = null
+    this.scatter.forgetIdentity()
   }
 
   // push eos action transaction
