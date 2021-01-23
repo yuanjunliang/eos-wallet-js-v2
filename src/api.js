@@ -16,7 +16,7 @@ export const URL = {
 
 class EosApi {
   constructor(config) {
-    this.config = { ...defaultConfig, ...config };
+    this.config = Object.assign({},defaultConfig,config);
     this.http = null;
 
     this.init();
@@ -33,8 +33,16 @@ class EosApi {
     return this.http.post(URL.GET_INFO);
   }
 
-  getAccount(accountName) {
-    return this.http.post(URL.GET_ACCOUNT, { account_name: accountName });
+  getAccount(accountName,callback) {
+    if (typeof callback === 'function') {
+      this.http.post(URL.GET_ACCOUNT, { account_name: accountName }).then(res=> {
+        callback(null,res)
+      }).catch(error=> {
+        callback(error,null)
+      })
+    } else {
+      return this.http.post(URL.GET_ACCOUNT, { account_name: accountName });
+    }
   }
 
   getBlock(blockNumOrId) {
@@ -54,6 +62,23 @@ class EosApi {
    */
   getCurrencyBalance(params) {
     return this.http.post(URL.GET_CURRENCY_BALANCE, params);
+  }
+
+  getBalance (account,callback) {
+    const params = {
+      code: 'eosio.token',
+      account: account,
+      symbol: 'EOS',
+    }
+    if (typeof callback === 'function') {
+      this.http.post(URL.GET_CURRENCY_BALANCE,params).then(res=> {
+        callback(null,res)
+      }).catch(error=> {
+        callback(error,null)
+      })
+    } else {
+      return this.http.post(URL.GET_CURRENCY_BALANCE,params)
+    }
   }
 
   /**

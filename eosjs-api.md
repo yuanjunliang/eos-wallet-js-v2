@@ -6,6 +6,8 @@
 
 使用方法
 
+该版本兼容[eosjs-api](https://github.com/EOSIO/eosjs-api)
+
 **所有方法都是返回Promise**
 
 ```
