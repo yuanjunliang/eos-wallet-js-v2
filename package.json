@@ -1,6 +1,6 @@
 {
   "name": "eos-wallet-js-v2",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "eosjs2.x version",
   "main": "index.js",
   "scripts": {
